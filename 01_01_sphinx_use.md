@@ -3,7 +3,8 @@
 1. 下記を実行  
   pip install sphinx
   pip install myst-parser
-2. プロジェクトのディレクトリ直下でdocsディレクトリを作成  
+2. 指定のプロジェクトに移動し、プロジェクトのディレクトリ直下でdocsディレクトリを作成  
+  cd project_dir  
   mkdir docs
 3. Sphinxの雛形を作成  
   sphinx-quickstart docs
