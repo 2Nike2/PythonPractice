@@ -5,3 +5,4 @@ repos:
     rev: v3.2.6
     hooks:
     -   id: pylint
+        args: ["--rcfile=01_04_pylint/pylintrc"]
