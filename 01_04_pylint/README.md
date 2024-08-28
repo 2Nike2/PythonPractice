@@ -9,3 +9,4 @@ pylint *.py
 pip install pre-commit
 pre-commit sample-config > .pre-commit-config.yaml
 pre-commit install
+pylint --generate-rcfile > ~/.config/pylintrc
