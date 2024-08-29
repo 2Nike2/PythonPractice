@@ -1,4 +1,4 @@
-"""test for linter and formatter."""
+"""test for linter and formatter tools."""
 
 import datetime as dt
 import math
