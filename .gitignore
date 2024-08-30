@@ -164,3 +164,4 @@ cython_debug/
 docs
 
 .DS_Store
+02_01_ijson/big_size_json.json
