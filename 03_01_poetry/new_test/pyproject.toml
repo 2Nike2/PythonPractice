@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "new-test"
+version = "0.1.0"
+description = ""
+authors = ["2Nike2 <29421346+2Nike2@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "new_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+scikit-learn = "^1.5.1"
+matplotlib = "^3.9.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
