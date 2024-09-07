@@ -10,6 +10,7 @@ packages = [{include = "new_test"}]
 python = "^3.10"
 scikit-learn = "^1.5.1"
 matplotlib = "^3.9.2"
+pandas = "^2.2.2"
 
 
 [build-system]
