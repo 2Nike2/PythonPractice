@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "init-test"
+version = "0.1.0"
+description = ""
+authors = ["2Nike2 <29421346+2Nike2@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "init_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
