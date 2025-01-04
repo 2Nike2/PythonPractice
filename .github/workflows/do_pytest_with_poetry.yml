@@ -15,7 +15,7 @@ jobs:
       - name: Set poetry env
         run: echo "$HOME/.poetry/bin" >> $GITHUB_PATH
       - name: Set Poetry config
-        run: poetry config virtualenvs.create true
+        run: poetry config virtualenvs.create false
       - name: Install libraries by poetry
         run: poetry install
       - name: Run pytest
