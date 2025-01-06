@@ -4,6 +4,9 @@
 # AWS_S3_BUCKET
 # を設定しておく。
 
+# 参考URL
+# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_transcription_job.html#
+
 import os
 import datetime
 import time
@@ -43,7 +46,15 @@ transcribe_client.start_transcription_job(
     "MediaFileUri": update_file_uri
   },
   MediaFormat=extension,
-  LanguageCode="ja-JP"
+  LanguageCode="ja-JP",
+  Settings={
+    "ShowSpeakerLabels": True, # 話者識別
+    "MaxSpeakerLabels": 2 # 最大話者数
+  },
+  # Subtitles= { # 字幕設定、有名な字幕のファイル形式にすることができるが、AWS Transcribeでは話者識別の情報が落とされてしまう模様
+  #   "Formats": ["srt"], # vtt(WebVTT) or srt(SubRip)
+  #   "OutputStartIndex": 1 # AWS Transcribeのデフォルトだと「0」だが、一般的には「1」から始まるので「1」推奨
+  # }
 )
 
 count = 10 
