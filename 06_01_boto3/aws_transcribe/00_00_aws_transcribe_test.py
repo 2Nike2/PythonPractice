@@ -11,6 +11,8 @@ import os
 import datetime
 import time
 import uuid
+import requests
+import json
 
 import boto3
 
@@ -23,6 +25,7 @@ extension = target_filename.split(".")[-1]
 s3_upload_file_key = f"movie/{target_filename}"
 update_file_uri = f"s3://{AWS_S3_BUCKET}/{s3_upload_file_key}"
 transcription_jobname = f"transcription-test-{uuid.uuid4()}"
+result_file = "result.json"
 
 s3_client = boto3.client("s3")
 transcribe_client = boto3.client("transcribe")
@@ -57,7 +60,7 @@ transcribe_client.start_transcription_job(
   # }
 )
 
-count = 10 
+count = 36
 while count > 0:
   count -= 1
 
@@ -67,7 +70,17 @@ while count > 0:
     print(f"Job {transcription_jobname} is {job_status}.")
     if job_status == "COMPLETED":
       transcription_url = job["TranscriptionJob"]["Transcript"]["TranscriptFileUri"]
-      print(f"Download the transcription from {transcription_url}.")
+      # print(f"Download the transcription from {transcription_url}.")
+
+      response = requests.get(transcription_url)
+      if response.status_code == 200:
+        with open(result_file, "w", encoding="utf-8") as f:
+            # レスポンスをJSON形式で保存する場合
+            json.dump(response.json(), f, ensure_ascii=False)
+        print(f"Downloaded transcription saved to {result_file}.")
+      else:
+        print(f"Failed to download transcription. HTTP status code: {response.status_code}")
+
       break
   else:
     print(f"Waiting for {transcription_jobname}. Current status is {job_status}.")
