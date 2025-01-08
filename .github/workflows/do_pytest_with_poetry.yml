@@ -17,6 +17,6 @@ jobs:
       - name: Set Poetry config
         run: poetry config virtualenvs.create false
       - name: Install libraries by poetry
-        run: poetry install
+        run: poetry install --no-root
       - name: Run pytest
         run: python -m pytest 05_01_pytest
