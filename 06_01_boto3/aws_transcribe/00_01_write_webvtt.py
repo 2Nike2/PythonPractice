@@ -26,7 +26,7 @@ with open("transcript.vtt", "w") as f:
   for tmp_audio_segment in audio_segments:
     tmp_speaker_label = tmp_audio_segment["speaker_label"]
     if tmp_speaker_label != speaker_label:
-      f.write(f"{start_time} ---> {end_time}\n")
+      f.write(f"{start_time} --> {end_time}\n")
       f.write(transcript + "\n")
       f.write("\n")
 
@@ -38,6 +38,6 @@ with open("transcript.vtt", "w") as f:
       end_time = seconds_to_vtt_time(tmp_audio_segment["end_time"])
       transcript += tmp_audio_segment["transcript"]
   
-  f.write(f"{start_time} ---> {end_time}\n")
+  f.write(f"{start_time} --> {end_time}\n")
   f.write(transcript + "\n")
   f.write("\n")
