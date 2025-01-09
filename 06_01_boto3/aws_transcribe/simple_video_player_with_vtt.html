@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字幕付き動画ビューワ</title>
+  <style>
+    video {
+      width: 100%; /* 動画サイズを画面に合わせる */
+    }
+
+    ::cue {
+      line-height: 0.4;
+      font-size: 1rem; /* 字幕の文字サイズ */
+      background: rgba(0, 0, 0, 0.5); /* 背景の透明な黒 */
+      color: white; /* 文字色 */
+      text-shadow: 1px 1px 2px black; /* 文字の見やすさを強化 */
+      padding: 0.2rem 0.2rem; /* 字幕内の余白 */
+      border-radius: 5px; /* 字幕の角を丸くする */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <video controls src="sample.mp4">
+      <track default kind="subtitles" src="transcript.vtt" srclang="ja" />
+    </video>
+  </div>
+</body>
+</html>
