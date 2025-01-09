@@ -169,3 +169,5 @@ docs
 *.mp4
 
 06_01_boto3/aws_transcribe/result.json
+
+*.vtt
