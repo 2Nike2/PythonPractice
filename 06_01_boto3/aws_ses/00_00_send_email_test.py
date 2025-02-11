@@ -7,6 +7,8 @@ load_dotenv()
 
 SES_SOURCE = os.getenv("SES_SOURCE")
 SES_DESTINATION = os.getenv("SES_DESTINATION")
+SES_MAIL_SUBJECT = os.getenv("SES_MAIL_SUBJECT")
+SES_MAIL_BODY = os.getenv("SES_MAIL_BODY")
 
 send_args = {
   "Source": SES_SOURCE,
@@ -16,10 +18,10 @@ send_args = {
     ]
   },
   "Message": {
-    "Subject": {"Data": "AWS SES 動作確認"},
+    "Subject": {"Data": SES_MAIL_SUBJECT},
     "Body": {
-      "Text": {"Data": "AWS SESからのメールです。"},
-      "Html": {"Data": "<p>AWS SESからのメールです。</p>"}
+      "Text": {"Data": SES_MAIL_BODY},
+      "Html": {"Data": f"<p>{SES_MAIL_BODY}</p>"}
     }
   }
 }
